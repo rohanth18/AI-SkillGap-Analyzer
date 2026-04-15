@@ -1,0 +1,167 @@
+═══════════════════════════════════════════════════════════════════════════
+  RUN PROJECT FROM SCRATCH - Copy-Paste Commands (Windows PowerShell)
+═══════════════════════════════════════════════════════════════════════════
+
+📌 PREREQUISITES:
+   ✓ Python 3.9+ installed (check: python --version)
+   ✓ Node.js 16+ installed (check: node --version)
+
+═══════════════════════════════════════════════════════════════════════════
+🚀 METHOD 1: AUTOMATED SCRIPT (RECOMMENDED)
+═══════════════════════════════════════════════════════════════════════════
+
+Open PowerShell in the project folder and run:
+────────────────────────────────────────────────────────────────────────────
+.\RUN_FROM_SCRATCH.ps1
+────────────────────────────────────────────────────────────────────────────
+
+This will automatically:
+  ✓ Setup backend virtual environment
+  ✓ Install all Python dependencies
+  ✓ Install frontend npm packages
+  ✓ Start both servers in separate windows
+  ✓ Verify everything is running
+
+═══════════════════════════════════════════════════════════════════════════
+🚀 METHOD 2: MANUAL COMMANDS (Step by Step)
+═══════════════════════════════════════════════════════════════════════════
+
+STEP 1: Setup Backend (ONE TIME ONLY)
+────────────────────────────────────────────────────────────────────────────
+cd backend
+python -m venv venv
+.\venv\Scripts\python.exe -m pip install --upgrade pip
+.\venv\Scripts\python.exe -m pip install -r requirements.txt
+.\venv\Scripts\python.exe -m pip install en_core_web_sm-3.7.1-py3-none-any.whl
+────────────────────────────────────────────────────────────────────────────
+
+STEP 2: Setup Frontend (ONE TIME ONLY)
+────────────────────────────────────────────────────────────────────────────
+cd ..\frontend
+npm install
+────────────────────────────────────────────────────────────────────────────
+
+STEP 3: Start Backend Server (Terminal/Window 1)
+────────────────────────────────────────────────────────────────────────────
+cd backend
+.\venv\Scripts\python.exe app.py
+────────────────────────────────────────────────────────────────────────────
+Expected output: "Running on http://127.0.0.1:5000"
+
+STEP 4: Start Frontend Server (Terminal/Window 2 - NEW WINDOW)
+────────────────────────────────────────────────────────────────────────────
+cd frontend
+npm run dev
+────────────────────────────────────────────────────────────────────────────
+Expected output: "Local: http://localhost:5173/"
+
+STEP 5: Open in Browser
+────────────────────────────────────────────────────────────────────────────
+http://localhost:5173
+────────────────────────────────────────────────────────────────────────────
+
+═══════════════════════════════════════════════════════════════════════════
+🚀 METHOD 3: QUICK START (If Already Set Up Before)
+═══════════════════════════════════════════════════════════════════════════
+
+If you've already run setup before, just start the servers:
+
+TERMINAL 1 - Backend:
+────────────────────────────────────────────────────────────────────────────
+cd backend
+.\venv\Scripts\python.exe app.py
+────────────────────────────────────────────────────────────────────────────
+
+TERMINAL 2 - Frontend:
+────────────────────────────────────────────────────────────────────────────
+cd frontend
+npm run dev
+────────────────────────────────────────────────────────────────────────────
+
+Then open: http://localhost:5173
+
+═══════════════════════════════════════════════════════════════════════════
+🔧 TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════════════════
+
+Problem: "python: command not found"
+Solution: Install Python from https://www.python.org/downloads/
+          Make sure to check "Add Python to PATH" during installation
+
+Problem: "node: command not found" or "npm: command not found"
+Solution: Install Node.js from https://nodejs.org/ (LTS version)
+          Restart PowerShell after installation
+
+Problem: "Port 5000 already in use"
+Solution: Close any other application using port 5000
+          Or kill the process:
+          netstat -ano | findstr :5000
+          taskkill /PID <PID_NUMBER> /F
+
+Problem: "Port 5173 already in use"
+Solution: Close any other application using port 5173
+          Or kill the process:
+          netstat -ano | findstr :5173
+          taskkill /PID <PID_NUMBER> /F
+
+Problem: "ModuleNotFoundError: No module named 'flask'"
+Solution: Make sure you activated the virtual environment:
+          cd backend
+          .\venv\Scripts\activate
+          pip install -r requirements.txt
+
+Problem: "Cannot find module" errors in frontend
+Solution: Delete node_modules folder and reinstall:
+          cd frontend
+          Remove-Item -Recurse -Force node_modules
+          npm install
+
+Problem: PowerShell script execution is disabled
+Solution: Run this command first:
+          Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+          Then run: .\RUN_FROM_SCRATCH.ps1
+
+═══════════════════════════════════════════════════════════════════════════
+✅ VERIFICATION
+═══════════════════════════════════════════════════════════════════════════
+
+Check if servers are running:
+────────────────────────────────────────────────────────────────────────────
+netstat -ano | findstr ":5000 :5173"
+────────────────────────────────────────────────────────────────────────────
+
+Or use PowerShell:
+────────────────────────────────────────────────────────────────────────────
+Get-NetTCPConnection -LocalPort 5000,5173 -ErrorAction SilentlyContinue
+────────────────────────────────────────────────────────────────────────────
+
+You should see:
+  ✓ TCP    0.0.0.0:5000    LISTENING  (Backend)
+  ✓ TCP    [::1]:5173      LISTENING  (Frontend)
+
+═══════════════════════════════════════════════════════════════════════════
+📝 FIRST TIME USAGE
+═══════════════════════════════════════════════════════════════════════════
+
+1. Open http://localhost:5173 in your browser
+2. Click "Register" to create an account
+3. First registered user automatically becomes ADMIN
+4. Login with your credentials
+5. (Optional) Seed database: Admin Dashboard → "Seed from CSV"
+
+═══════════════════════════════════════════════════════════════════════════
+🛑 STOPPING THE SERVERS
+═══════════════════════════════════════════════════════════════════════════
+
+Press Ctrl+C in each terminal window, or simply close the windows.
+
+═══════════════════════════════════════════════════════════════════════════
+🎯 IMPORTANT URLS
+═══════════════════════════════════════════════════════════════════════════
+
+Frontend Application:  http://localhost:5173
+Backend API:           http://127.0.0.1:5000
+Admin Dashboard:       http://localhost:5173/admin
+
+═══════════════════════════════════════════════════════════════════════════
+

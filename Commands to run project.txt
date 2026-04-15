@@ -1,0 +1,14 @@
+Commands to run project
+-Backend
+cd backend
+python -m venv venv
+.\venv\Scripts\python.exe -m pip install --upgrade pip
+.\venv\Scripts\python.exe -m pip install -r requirements.txt
+.\venv\Scripts\python.exe -m pip install en_core_web_sm-3.7.1-py3-none-any.whl
+After this-
+.\venv\Scripts\python.exe app.py
+
+-Frontend
+cd frontend
+npm install
+npm run dev

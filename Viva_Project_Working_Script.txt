@@ -1,0 +1,73 @@
+=========================================================
+VIVA SCRIPT: FULL WORKING OF THE AI SKILLGAP ANALYZER
+=========================================================
+
+1. INTRODUCTION & GREETING
+"Good morning/afternoon respected examiners. 
+My name is Tejas Suresh Deshbhandari from the MCA department at Sir MVIT. 
+Today, I am here to present my final year project titled 'AI-Based Skill Gap Analyzer and Personalized Learning Recommendation System'."
+
+
+2. THE PROBLEM STATEMENT (The "Why")
+"In today's fast-changing job market, candidates face a major problem: they don't know exactly *which* skills they are missing for their dream job. Furthermore, traditional company Applicant Tracking Systems (ATS) usually just look for exact keywords. If a candidate writes 'Deep Learning' but the system is looking for 'Artificial Intelligence', their resume gets rejected. There is no standard system that actually understands the *meaning* of a candidate's experience."
+
+
+3. THE PROPOSED SOLUTION (The "What")
+"To solve this, I developed an intelligent platform that performs a deep semantic analysis of a user's resume. Instead of just matching words, my system figures out what skills the user actually has, compares them against industry-standard requirements for over 50 IT roles, calculates the exact 'skill gap', and finally, generates a step-by-step personalized learning roadmap and project recommendations."
+
+
+4. SYSTEM ARCHITECTURE & TECH STACK (The "How")
+"To make this scalable and fast, I used a modern tech stack:
+- Frontend: Built using React and Vite for a very fast user interface, with Tailwind CSS for styling and Chart.js to generate interactive Radar charts.
+- Backend: Built using Python with the Flask framework to handle APIs because Python has the best support for AI libraries. For the database, I used SQLite via SQLAlchemy, along with JWT for secure authentication."
+
+
+5. THE CORE AI ENGINE (The "Minute Technical Details")
+"The most complex part of my project is the AI Extraction Engine. It works in three layers:
+1. Exact Keyword Extraction: I use a Natural Language Processing library called spaCy, specifically the PhraseMatcher. This quickly finds exact technical terms like 'Python' or 'React' with 100% precision.
+2. Semantic Understanding: To understand the meaning behind words, I implemented Sentence-BERT (SBERT), specifically the all-MiniLM-L6-v2 transformer model. This is crucial because it helps the system understand that 'Machine Learning' and 'Predictive Modeling' are highly related.
+3. Handling Errors: I also used the FuzzyWuzzy library to account for minor typos users might make in their resumes."
+
+
+6. MACHINE LEARNING RECOMMENDATION SYSTEM
+"Once the skills are extracted, I use TF-IDF Vectorization to convert the user's text into mathematical vectors. Then, I pass this data into a Machine Learning model—specifically a RandomForest Classifier—that was trained on an IT job roles dataset. This model predicts the Top 3 most suitable career paths for the user based on their current skills, and assigns a confidence percentage to each."
+
+
+7. REAL-WORLD EXAMPLE: RAHUL'S JOURNEY
+"Let me explain how this works with a quick example:
+Imagine a student named Rahul who wants to be a Data Scientist, but only knows Python, SQL, and College Mathematics.
+- First, spaCy automatically extracts 'Python' and 'SQL'.
+- Second, SBERT reads 'College Mathematics' and understands that, in a professional context, it is highly related to 'Statistics'.
+- Third, the system compares Rahul to the Data Scientist industry requirements (Python, SQL, Statistics, Machine Learning, Deep Learning, Pandas).
+- The system correctly flags a Skill Gap: Rahul is completely missing Machine Learning, Deep Learning, and Pandas.
+- Finally, the RandomForest ML model tells Rahul he is a 40% match for Data Scientist, but generates a 6-week roadmap and projects to cover that 60% gap."
+
+
+8. ROADMAP GENERATION (ML vs. Rule-Based Logic)
+"If you ask how the system generates the resources, it's important to know I split the logic into two parts: Machine Learning for Prediction, and a Rule-Based Algorithm for Generation. 
+- While SBERT and RandomForest handle the extraction and predictions, the actual Roadmap Generation uses a Deterministic Rule-Based Algorithm (Template Matching). 
+- I used a structured Backend Dictionary instead of a generative AI (like ChatGPT) because I wanted to guarantee the user gets highly curated, verified, and high-quality learning resources without the risk of 'AI Hallucinations' (fake links)."
+
+
+9. YOUTUBE VIDEO LINKING LOGIC
+"Instead of hardcoding static YouTube links—which can quickly become broken—my system uses Dynamic URL Encoding on the React frontend to generate real-time search queries.
+
+Let me trace exactly what the code does if a user lacks 'C++':
+1. The backend ML model identifies the user is missing 'C++'.
+2. It sends this to 'project_recommender.py'. My dictionary specifically holds matched projects for C++, like 'Implement data structures (linked lists, trees, graphs)'.
+3. On the React frontend, I take that exact project string and programmatically append the word ' tutorial'. 
+4. Because URLs cannot contain spaces, I pass this string through the native JavaScript function 'encodeURIComponent()'.
+5. Finally, I inject this safe string into the base YouTube search URL. When the user clicks the 'Tutorial' button, 'window.open()' executes.
+
+The final exact URL generated is:
+https://www.youtube.com/results?search_query=Implement%20data%20structures%20(linked%20lists%2C%20trees%2C%20graphs)%20tutorial
+
+This dynamically searches YouTube for a highly specific, project-based video, ensuring the content is always up-to-date."
+
+
+10. ATS SCORING MODULE
+"Before the user leaves, the ATS Scoring module analyzes the text formatting. Resumes are evaluated on a 100-point scale based on 4 strict criteria: Contact Presence (35), Keyword Density (25), Readability (20), and Document Structure (20). If a section scores terribly, it provides AI-powered suggestions on how to rewrite the resume text to pass corporate software."
+
+
+11. CONCLUSION
+"During testing, my hybrid AI engine achieved over 95% accuracy in skill extraction and 85% accuracy in job role prediction, with most analysis requests processing in under 2 seconds. This system successfully bridges the gap between job seekers and industry expectations. Thank you."

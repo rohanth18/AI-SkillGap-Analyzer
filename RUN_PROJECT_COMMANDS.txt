@@ -1,0 +1,267 @@
+═══════════════════════════════════════════════════════════════════════════
+  COMMANDS TO RUN AI SKILLGAP ANALYZER ON ANOTHER COMPUTER
+═══════════════════════════════════════════════════════════════════════════
+
+📌 PREREQUISITES (Install these first):
+   1. Python 3.9+ → https://www.python.org/downloads/
+   2. Node.js 16+ → https://nodejs.org/ (LTS version)
+
+═══════════════════════════════════════════════════════════════════════════
+🪟 WINDOWS - FIRST TIME SETUP
+═══════════════════════════════════════════════════════════════════════════
+
+STEP 1: Copy the entire "project_v2" folder to the new computer
+
+STEP 2: Open PowerShell and navigate to the project folder
+────────────────────────────────────────────────────────────────────────────
+cd "path\to\project_v2"
+
+
+STEP 3: Setup Backend (ONE TIME ONLY)
+────────────────────────────────────────────────────────────────────────────
+cd backend
+py -m venv venv_new
+venv_new\Scripts\python.exe -m pip install Flask==2.3.2 Flask-SQLAlchemy==3.0.5 Flask-CORS==4.0.0 Flask-Migrate==4.0.4 Flask-JWT-Extended==4.5.2 Werkzeug==2.3.6 spacy==3.7.2 fuzzywuzzy==0.18.0 requests==2.31.0 PyPDF2==3.0.1 scikit-learn
+venv_new\Scripts\python.exe -m pip install https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl
+
+
+STEP 4: Setup Frontend (ONE TIME ONLY)
+────────────────────────────────────────────────────────────────────────────
+cd ..\frontend
+npm install
+
+
+═══════════════════════════════════════════════════════════════════════════
+🚀 RUNNING THE PROJECT (EVERY TIME)
+═══════════════════════════════════════════════════════════════════════════
+
+You need TWO PowerShell windows open at the same time:
+
+TERMINAL 1 - Start Backend Server:
+────────────────────────────────────────────────────────────────────────────
+cd "path\to\project_v2\backend"
+venv_new\Scripts\python.exe app.py
+
+Expected output: "Running on http://127.0.0.1:5000"
+
+
+TERMINAL 2 - Start Frontend Server:
+────────────────────────────────────────────────────────────────────────────
+cd "path\to\project_v2\frontend"
+npm run dev
+
+Expected output: "Local: http://localhost:5173/"
+
+
+STEP 5: Open in Browser
+────────────────────────────────────────────────────────────────────────────
+http://localhost:5173
+
+
+═══════════════════════════════════════════════════════════════════════════
+🍎 MAC/LINUX - FIRST TIME SETUP
+═══════════════════════════════════════════════════════════════════════════
+
+STEP 1: Copy the entire "project_v2" folder to the new computer
+
+STEP 2: Open Terminal and navigate to the project folder
+────────────────────────────────────────────────────────────────────────────
+cd path/to/project_v2
+
+
+STEP 3: Setup Backend (ONE TIME ONLY)
+────────────────────────────────────────────────────────────────────────────
+cd backend
+python3 -m venv venv_new
+source venv_new/bin/activate
+pip install Flask==2.3.2 Flask-SQLAlchemy==3.0.5 Flask-CORS==4.0.0 Flask-Migrate==4.0.4 Flask-JWT-Extended==4.5.2 Werkzeug==2.3.6 spacy==3.7.2 fuzzywuzzy==0.18.0 requests==2.31.0 PyPDF2==3.0.1 scikit-learn
+pip install https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl
+
+
+STEP 4: Setup Frontend (ONE TIME ONLY)
+────────────────────────────────────────────────────────────────────────────
+cd ../frontend
+npm install
+
+
+═══════════════════════════════════════════════════════════════════════════
+🚀 RUNNING THE PROJECT (EVERY TIME) - MAC/LINUX
+═══════════════════════════════════════════════════════════════════════════
+
+You need TWO Terminal windows open at the same time:
+
+TERMINAL 1 - Start Backend Server:
+────────────────────────────────────────────────────────────────────────────
+cd path/to/project_v2/backend
+source venv_new/bin/activate
+python app.py
+
+Expected output: "Running on http://127.0.0.1:5000"
+
+
+TERMINAL 2 - Start Frontend Server:
+────────────────────────────────────────────────────────────────────────────
+cd path/to/project_v2/frontend
+npm run dev
+
+Expected output: "Local: http://localhost:5173/"
+
+
+STEP 5: Open in Browser
+────────────────────────────────────────────────────────────────────────────
+http://localhost:5173
+
+
+═══════════════════════════════════════════════════════════════════════════
+📝 FIRST TIME USAGE
+═══════════════════════════════════════════════════════════════════════════
+
+1. Open http://localhost:5173 in your browser
+2. Click "Register" to create an account
+3. First registered user automatically becomes ADMIN
+4. Login with your credentials
+5. (Optional) Seed database: Admin Dashboard → "Seed from CSV"
+
+
+═══════════════════════════════════════════════════════════════════════════
+🛑 TO STOP THE APPLICATION
+═══════════════════════════════════════════════════════════════════════════
+
+Press Ctrl+C in both terminal windows
+
+
+═══════════════════════════════════════════════════════════════════════════
+⚡ QUICK COPY-PASTE COMMANDS (Windows)
+═══════════════════════════════════════════════════════════════════════════
+
+ONE-TIME SETUP:
+────────────────────────────────────────────────────────────────────────────
+cd project_v2\backend
+py -m venv venv_new
+venv_new\Scripts\python.exe -m pip install Flask==2.3.2 Flask-SQLAlchemy==3.0.5 Flask-CORS==4.0.0 Flask-Migrate==4.0.4 Flask-JWT-Extended==4.5.2 Werkzeug==2.3.6 spacy==3.7.2 fuzzywuzzy==0.18.0 requests==2.31.0 PyPDF2==3.0.1 scikit-learn
+venv_new\Scripts\python.exe -m pip install https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl
+cd ..\frontend
+npm install
+
+
+RUN BACKEND (Terminal 1):
+────────────────────────────────────────────────────────────────────────────
+cd project_v2\backend
+venv_new\Scripts\python.exe app.py
+
+
+RUN FRONTEND (Terminal 2):
+────────────────────────────────────────────────────────────────────────────
+cd project_v2\frontend
+npm run dev
+
+
+═══════════════════════════════════════════════════════════════════════════
+⚡ QUICK COPY-PASTE COMMANDS (Mac/Linux)
+═══════════════════════════════════════════════════════════════════════════
+
+ONE-TIME SETUP:
+────────────────────────────────────────────────────────────────────────────
+cd project_v2/backend
+python3 -m venv venv_new
+source venv_new/bin/activate
+pip install Flask==2.3.2 Flask-SQLAlchemy==3.0.5 Flask-CORS==4.0.0 Flask-Migrate==4.0.4 Flask-JWT-Extended==4.5.2 Werkzeug==2.3.6 spacy==3.7.2 fuzzywuzzy==0.18.0 requests==2.31.0 PyPDF2==3.0.1 scikit-learn
+pip install https://github.com/explosion/spacy-models/releases/download/en_core_web_sm-3.7.1/en_core_web_sm-3.7.1-py3-none-any.whl
+cd ../frontend
+npm install
+
+
+RUN BACKEND (Terminal 1):
+────────────────────────────────────────────────────────────────────────────
+cd project_v2/backend
+source venv_new/bin/activate
+python app.py
+
+
+RUN FRONTEND (Terminal 2):
+────────────────────────────────────────────────────────────────────────────
+cd project_v2/frontend
+npm run dev
+
+
+═══════════════════════════════════════════════════════════════════════════
+🔧 TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════════════════
+
+Problem: "Python not found"
+Solution: Install Python from https://www.python.org/downloads/
+          Make sure to check "Add Python to PATH" during installation
+
+Problem: "npm not found" or "node not found"
+Solution: Install Node.js from https://nodejs.org/
+          Restart your terminal after installation
+
+Problem: Port already in use
+Solution: Close any other applications using ports 5000 or 5173
+          Or kill the process:
+          Windows: netstat -ano | findstr :5000
+                   taskkill /PID <PID> /F
+          Mac/Linux: lsof -ti:5000 | xargs kill -9
+
+Problem: "Cannot find module" errors
+Solution: Delete node_modules folder and run "npm install" again
+
+Problem: Backend starts but shows errors
+Solution: Make sure all Python packages are installed
+          Re-run the pip install command
+
+
+═══════════════════════════════════════════════════════════════════════════
+📊 WHAT YOU NEED TO TRANSFER
+═══════════════════════════════════════════════════════════════════════════
+
+Transfer these to the new computer:
+✓ project_v2/ folder (entire folder)
+✓ This instruction file
+
+DO NOT transfer:
+✗ venv/ or venv_new/ folders (will be created fresh)
+✗ node_modules/ folder (will be created fresh)
+✗ __pycache__/ folders
+✗ .pyc files
+
+
+═══════════════════════════════════════════════════════════════════════════
+🎯 URLS REFERENCE
+═══════════════════════════════════════════════════════════════════════════
+
+Frontend Application:  http://localhost:5173
+Backend API:           http://127.0.0.1:5000
+Admin Dashboard:       http://localhost:5173/admin
+
+
+═══════════════════════════════════════════════════════════════════════════
+✅ SUCCESS INDICATORS
+═══════════════════════════════════════════════════════════════════════════
+
+Backend Running:
+  ✓ See "Running on http://127.0.0.1:5000" in Terminal 1
+  ✓ See "Debug mode: on" message
+
+Frontend Running:
+  ✓ See "Local: http://localhost:5173/" in Terminal 2
+  ✓ See "VITE v5.x.x ready" message
+
+Application Working:
+  ✓ Can open http://localhost:5173 in browser
+  ✓ Can see login/register page
+  ✓ Can create account and login
+
+
+═══════════════════════════════════════════════════════════════════════════
+📞 NEED HELP?
+═══════════════════════════════════════════════════════════════════════════
+
+Check these files in the project_v2 folder:
+- README.md
+- SETUP_COMMANDS.md
+- INSTALLATION_GUIDE.md
+- TECHNOLOGY_STACK.md
+
+
+═══════════════════════════════════════════════════════════════════════════

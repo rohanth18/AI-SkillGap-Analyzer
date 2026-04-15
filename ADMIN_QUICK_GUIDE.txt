@@ -1,0 +1,104 @@
+═══════════════════════════════════════════════════════════════
+  QUICK GUIDE: Change Admin Credentials
+═══════════════════════════════════════════════════════════════
+
+📌 IMPORTANT: Stop the backend server first (Ctrl+C in backend terminal)
+
+═══════════════════════════════════════════════════════════════
+METHOD 1: Change Existing Admin (RECOMMENDED)
+═══════════════════════════════════════════════════════════════
+
+Windows:
+────────────────────────────────────────────────────────────────
+cd "d:\Mca Main project just user module\Mca Main project just user module\project_v2\backend"
+venv_new\Scripts\python.exe change_admin.py
+
+Mac/Linux:
+────────────────────────────────────────────────────────────────
+cd project_v2/backend
+source venv_new/bin/activate
+python change_admin.py
+
+The script will:
+1. Show all users in database
+2. Ask for current admin email
+3. Ask for new email, password, and name
+4. Update the credentials
+
+═══════════════════════════════════════════════════════════════
+METHOD 2: View Current Admin
+═══════════════════════════════════════════════════════════════
+
+Windows:
+────────────────────────────────────────────────────────────────
+cd "d:\Mca Main project just user module\Mca Main project just user module\project_v2\backend"
+venv_new\Scripts\python.exe view_admin.py
+
+Mac/Linux:
+────────────────────────────────────────────────────────────────
+cd project_v2/backend
+source venv_new/bin/activate
+python view_admin.py
+
+This shows all admin users with their details.
+
+═══════════════════════════════════════════════════════════════
+METHOD 3: Create New Admin
+═══════════════════════════════════════════════════════════════
+
+Windows:
+────────────────────────────────────────────────────────────────
+cd "d:\Mca Main project just user module\Mca Main project just user module\project_v2\backend"
+venv_new\Scripts\python.exe create_admin.py
+
+Mac/Linux:
+────────────────────────────────────────────────────────────────
+cd project_v2/backend
+source venv_new/bin/activate
+python create_admin.py
+
+This creates a brand new admin account.
+
+═══════════════════════════════════════════════════════════════
+AFTER CHANGING CREDENTIALS
+═══════════════════════════════════════════════════════════════
+
+1. Restart the backend server:
+   venv_new\Scripts\python.exe app.py
+
+2. Login with new credentials at:
+   http://localhost:5173
+
+═══════════════════════════════════════════════════════════════
+AVAILABLE SCRIPTS
+═══════════════════════════════════════════════════════════════
+
+✅ change_admin.py   - Change existing admin credentials
+✅ view_admin.py     - View current admin users
+✅ create_admin.py   - Create new admin user
+
+All scripts are in: project_v2/backend/
+
+═══════════════════════════════════════════════════════════════
+TROUBLESHOOTING
+═══════════════════════════════════════════════════════════════
+
+Problem: "User not found"
+Solution: Run view_admin.py to see current admin email
+
+Problem: Script errors
+Solution: Make sure backend server is stopped first
+
+Problem: "Email already exists"
+Solution: Use change_admin.py instead of create_admin.py
+
+═══════════════════════════════════════════════════════════════
+SECURITY TIPS
+═══════════════════════════════════════════════════════════════
+
+✓ Use strong passwords (8+ characters)
+✓ Don't share admin credentials
+✓ Backup database before changes
+✓ Delete scripts after use if they contain passwords
+
+═══════════════════════════════════════════════════════════════

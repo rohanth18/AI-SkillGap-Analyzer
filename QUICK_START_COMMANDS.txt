@@ -1,0 +1,100 @@
+═══════════════════════════════════════════════════════════════
+  QUICK START COMMANDS - AI SkillGap Analyzer Project
+═══════════════════════════════════════════════════════════════
+
+📌 PREREQUISITES:
+   ✓ Python 3.9+ installed
+   ✓ Node.js 16+ installed
+
+═══════════════════════════════════════════════════════════════
+🪟 WINDOWS COMMANDS
+═══════════════════════════════════════════════════════════════
+
+--- ONE-TIME SETUP ---
+
+1. Backend Setup:
+   cd project_v2\backend
+   python -m venv venv
+   venv\Scripts\activate
+   pip install -r requirements.txt
+   python -m spacy download en_core_web_sm
+
+2. Frontend Setup (NEW TERMINAL):
+   cd project_v2\frontend
+   npm install
+
+--- RUNNING THE APP (EVERY TIME) ---
+
+Terminal 1 - Backend:
+   cd project_v2\backend
+   venv\Scripts\activate
+   python app.py
+
+Terminal 2 - Frontend:
+   cd project_v2\frontend
+   npm run dev
+
+Open Browser: http://localhost:5173
+
+═══════════════════════════════════════════════════════════════
+🍎 MAC/LINUX COMMANDS
+═══════════════════════════════════════════════════════════════
+
+--- ONE-TIME SETUP ---
+
+1. Backend Setup:
+   cd project_v2/backend
+   python3 -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
+   python -m spacy download en_core_web_sm
+
+2. Frontend Setup (NEW TERMINAL):
+   cd project_v2/frontend
+   npm install
+
+--- RUNNING THE APP (EVERY TIME) ---
+
+Terminal 1 - Backend:
+   cd project_v2/backend
+   source venv/bin/activate
+   python app.py
+
+Terminal 2 - Frontend:
+   cd project_v2/frontend
+   npm run dev
+
+Open Browser: http://localhost:5173
+
+═══════════════════════════════════════════════════════════════
+🔧 IF POWERSHELL BLOCKS SCRIPT EXECUTION (Windows)
+═══════════════════════════════════════════════════════════════
+
+Instead of: venv\Scripts\activate
+Use:        venv\Scripts\python.exe app.py
+
+═══════════════════════════════════════════════════════════════
+📊 SEEDING DATABASE WITH JOB ROLES
+═══════════════════════════════════════════════════════════════
+
+Method 1 - Via API:
+   curl -X POST http://127.0.0.1:5000/api/seed
+
+Method 2 - Via Admin Dashboard:
+   Login as admin → Click "Seed from CSV" button
+
+═══════════════════════════════════════════════════════════════
+🎯 IMPORTANT URLS
+═══════════════════════════════════════════════════════════════
+
+Frontend:  http://localhost:5173
+Backend:   http://127.0.0.1:5000
+Admin:     http://localhost:5173/admin
+
+═══════════════════════════════════════════════════════════════
+👤 FIRST USER = ADMIN
+═══════════════════════════════════════════════════════════════
+
+The first person to register automatically becomes admin!
+
+═══════════════════════════════════════════════════════════════
